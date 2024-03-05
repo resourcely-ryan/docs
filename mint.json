@@ -29,7 +29,6 @@
     {
       "name": "API Reference",
       "url": "api-reference"
-      
     }
   ],
   "anchors": [
@@ -74,7 +73,6 @@
       "pages": [
         "api-reference/introduction"
       ]
-      
     },
     {
       "group": "Endpoint Examples",
