@@ -73,6 +73,7 @@
       "pages": [
         "api-reference/introduction"
       ]
+      
     },
     {
       "group": "Endpoint Examples",
@@ -87,5 +88,10 @@
     "twitter": "https://twitter.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "analytics": {
+    "koala": {
+        "publicApiKey": "pk_4fa2ea15e4baeb13ca463172a570c6445630"
+    }
+}
   }
 }
