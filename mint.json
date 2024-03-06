@@ -90,9 +90,7 @@
   },
   "analytics": {
     "koala": {
-        "publicApiKey": "pk_4fa2ea15e4baeb13ca463172a570c6445630"
+        "publicApiKey": "1"
     }
-  }
-}
   }
 }
