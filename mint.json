@@ -18,12 +18,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:sales@resourcely.io"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Home",
+    "url": "https://www.resourcely.io"
   },
   "tabs": [
     {
@@ -35,18 +35,8 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.spacelift.io"
     },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
   ],
   "navigation": [
     {
@@ -84,13 +74,13 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/resourcely",
+    "github": "https://github.com/Resourcely-Inc",
+    "linkedin": "https://www.linkedin.com/company/resourcely-io"
   },
   "analytics": {
     "koala": {
-        "publicApiKey": "1"
+        "publicApiKey": "pk_4fa2ea15e4baeb13ca463172a570c6445630"
     }
   }
 }
