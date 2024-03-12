@@ -1,0 +1,521 @@
+source: docs-test
+paths:
+  data: data
+  collections: content
+  includes: layouts
+  layouts: layouts
+  static: static
+  uploads: static/uploads
+  source: ''
+  archetypes: archetypes
+  assets: assets
+  content: content
+  pages: content
+  publish: public
+  config: ''
+collections_config:
+  pages:
+    path: content
+    output: true
+    filter:
+      base: strict
+    parse_branch_index: true
+    icon: feed
+    _enabled_editors:
+      - content
+      - visual
+    add_options:
+      - name: Add Site Page
+        editor: content
+        base_path: /
+        schema: default
+    disable_add: false
+    disable_add_folder: true
+    disable_file_actions: false
+    schemas:
+      default:
+        path: schemas/page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  Navigation:
+    path: data
+    output: true
+    filter:
+      base: none
+      include:
+        - nav.yml
+        - footer.yml
+    icon: table_rows
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: false
+  Theme_Palette:
+    path: data
+    output: true
+    filter:
+      base: none
+      include:
+        - theme.yml
+    icon: color_lens
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: false
+  banner:
+    path: data
+    output: true
+    filter:
+      base: none
+      include:
+        - banner.yml
+    icon: add_alert
+    preview:
+      metadata:
+        - text:
+            - key: show_until
+          icon: date_range
+        - text:
+            - key: enable_banner
+          icon: add_alert
+      gallery:
+        icon: add_alert
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: false
+  docs:
+    path: content/docs
+    output: true
+    parse_branch_index: true
+    icon: file
+    preview:
+      metadata:
+        - text:
+            - key: nav_section
+          icon: folder
+        - text:
+            - key: weight
+          icon: format_list_numbered
+    _enabled_editors:
+      - content
+      - visual
+    add_options:
+      - name: Read the docs
+        icon: local_library
+        href: https://docs.cloudcannon.com
+      - name: Add Document
+        editor: content
+        base_path: /
+        schema: default
+    disable_add: false
+    disable_add_folder: true
+    disable_file_actions: false
+    schemas:
+      default:
+        path: schemas/docs.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: true
+        icon: notes
+  Meta_Data:
+    path: data
+    output: false
+    filter:
+      exclude:
+        - theme.yml
+        - nav.yml
+        - footer.yml
+        - banner.yml
+    icon: settings
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: false
+  data:
+    path: data
+    output: false
+    icon: notes
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+collections_config_override: false
+collection_groups:
+  - heading: Base Pages
+    collections:
+      - pages
+  - heading: Docs
+    collections:
+      - docs
+  - heading: Site Settings
+    collections:
+      - Meta_Data
+      - Theme_Palette
+      - Navigation
+      - banner
+_inputs:
+  title:
+    type: text
+    label: Page Title
+    cascade: true
+  nav_title:
+    type: text
+    label: Sidebar Nav Title
+    comment: The name of the page shown in the sidebar navigation
+    cascade: true
+  nav_section:
+    type: text
+    label: Parent Section
+    comment: The name of the section the page is nested under in the sidebar navigation
+    cascade: true
+  weight:
+    type: number
+    comment: The order of the page in the sidebar group
+    cascade: true
+  project_name:
+    type: text
+    cascade: true
+  default_og_image:
+    type: image
+    comment: The default image for social media sharing
+    cascade: true
+  logo:
+    type: object
+    options:
+      structures: _structures.product_logo_structure
+    label: Site Logo
+    comment: Choose between image or text based logos
+    cascade: true
+  footer_links:
+    type: array
+    options:
+      structures: _structures.footer_link_structure
+    comment: choose between image or text based links
+    cascade: true
+  footer_width:
+    type: select
+    options:
+      allow_empty: true
+      values:
+        - contain
+        - full
+    cascade: true
+  logo_image:
+    type: image
+    comment: Default Display
+    cascade: true
+  logo_image_dark:
+    type: image
+    comment: Displays when dark mode is enabled
+    cascade: true
+  logo_text:
+    type: text
+    cascade: true
+  side_nav_title:
+    type: text
+    label: Sidebar Nav Title
+    cascade: true
+  favicon:
+    type: object
+    cascade: true
+  nav_links:
+    type: array
+    options:
+      structures: _structures.nav_link_structure
+    label: Navigation Links
+    cascade: true
+  link_title:
+    type: text
+    comment: Name used for alt text
+    cascade: true
+  link_url:
+    type: url
+    comment: if external link, include https://
+    cascade: true
+  link_label:
+    type: text
+    comment: Text displayed on the link
+    cascade: true
+  link_icon_path:
+    type: image
+    comment: '*prefers svgs for dark mode'
+    cascade: true
+  url_path:
+    type: text
+    comment: if external link, include https://
+    cascade: true
+  light:
+    type: object
+    label: Light theme color palette
+    cascade: true
+  dark:
+    type: object
+    label: Dark theme color palette
+    cascade: true
+  typography:
+    type: object
+    label: Text
+    comment: Text color palette
+    cascade: true
+  button_colors:
+    type: object
+    label: Buttons
+    comment: Button color palette
+    cascade: true
+  background_colors:
+    type: object
+    label: BG
+    comment: Background color palette
+    cascade: true
+  code_block_colors:
+    type: object
+    label: Code Blocks
+    comment: Code block color palette
+    cascade: true
+  border_colors:
+    type: object
+    label: Borders
+    comment: Border color palette
+    cascade: true
+  focus_colors:
+    type: object
+    label: Focus
+    comment: Focus color palette
+    cascade: true
+  shortcode_colors:
+    type: object
+    label: Shortcode
+    comment: Shortcode color palette
+    cascade: true
+  scrollbar_colors:
+    type: object
+    label: Scrollbars
+    comment: Scrollbar color palette
+    cascade: true
+  pagefind_colors:
+    type: object
+    label: Pagefind
+    comment: Pagefind color palette
+    cascade: true
+  text:
+    type: color
+    label: Primary text
+    comment: Main text color
+    cascade: true
+  flip-text:
+    type: color
+    comment: Text color for dark backgrounds
+    cascade: true
+  highlight:
+    type: color
+    label: Highlighted text
+    comment: Text color for highlighted text.
+    cascade: true
+  body-bg-color:
+    type: color
+    comment: Main body background color.
+    cascade: true
+  code-element:
+    type: color
+    label: HTML element tags
+    comment: Next color for codeblock html element tags.
+    cascade: true
+  code-attribute:
+    type: color
+    label: HTML attributes
+    comment: Text color for codeblock html attributes.
+    cascade: true
+  code-bool:
+    type: color
+    label: Boolean values
+    comment: Text color for codeblock boolean values.
+    cascade: true
+  code-params:
+    type: color
+    label: Function/HTML parameters
+    comment: Text color for codeblock function/html parameters.
+    cascade: true
+  code-values:
+    type: color
+    label: Key values
+    comment: Text color for codeblock key values.
+    cascade: true
+  background-body:
+    type: color
+    comment: Main body background color.
+    cascade: true
+  background:
+    type: color
+    comment: Background color for main content area.
+    cascade: true
+  background-alt:
+    type: color
+    comment: Background color for alternate content area.
+    cascade: true
+  selection:
+    type: color
+    comment: Selected text background color.
+    cascade: true
+  text-main:
+    type: color
+    comment: Main text color.
+    cascade: true
+  text-bright:
+    type: color
+    comment: Text color for bright text.
+    cascade: true
+  text-muted:
+    type: color
+    comment: Text color for muted text.
+    cascade: true
+  links:
+    type: color
+    comment: Text color for links.
+    cascade: true
+  focus:
+    type: color
+    comment: Focus color for links.
+    cascade: true
+  border:
+    type: color
+    comment: Border color for elements.
+    cascade: true
+  code:
+    type: color
+    label: Codeblock text color
+    comment: Text color for codeblock text.
+    cascade: true
+  button-base:
+    type: color
+    comment: Background color for buttons.
+    cascade: true
+  button-hover:
+    type: color
+    comment: Background color for buttons on hover.
+    cascade: true
+  scrollbar-thumb:
+    type: color
+    comment: Scrollbar thumb color.
+    cascade: true
+  scrollbar-thumb-hover:
+    type: color
+    comment: Scrollbar thumb color on hover.
+    cascade: true
+  form-placeholder:
+    type: color
+    comment: Placeholder text color for form inputs.
+    cascade: true
+  form-text:
+    type: color
+    comment: Text color for form inputs.
+    cascade: true
+  variable:
+    type: color
+    comment: Text color for codeblock variable names.
+    cascade: true
+  diffcode-added:
+    type: color
+    options:
+      format: hex
+      alpha: true
+    comment: Background color for added lines in diffcode shortcode.
+    cascade: true
+  diffcode-removed:
+    type: color
+    options:
+      format: hex
+      alpha: true
+    comment: Background color for removed lines in diffcode shortcode.
+    cascade: true
+  diffcode-highlighted:
+    type: color
+    options:
+      format: hex
+      alpha: true
+    comment: Background color for highlighted lines in diffcode shortcode.
+    cascade: true
+  pagefind-ui-primary:
+    type: color
+    comment: Primary color for pagefind ui.
+    cascade: true
+  pagefind-ui-secondary:
+    type: color
+    comment: Secondary color for pagefind ui.
+    cascade: true
+  pagefind-ui-background:
+    type: color
+    comment: Background color for pagefind ui.
+    cascade: true
+  pagefind-ui-border:
+    type: color
+    comment: Border color for pagefind ui.
+    cascade: true
+  pagefind-ui-tag:
+    type: color
+    comment: Tag color for pagefind ui.
+    cascade: true
+  small_icon:
+    type: image
+    comment: Dimensions - 16px x 16px
+    cascade: true
+  large_icon:
+    type: image
+    comment: Dimensions - 32px x 32px
+    cascade: true
+  apple_touch_icon:
+    type: image
+    comment: Dimensions - 57px x 57px
+    cascade: true
+  shortcut_icon:
+    type: image
+    comment: Bookmark icon
+    cascade: true
+_structures:
+  product_logo_structure:
+    style: select
+    values:
+      - label: Image
+        icon: add_photo_alternate
+        description: Add as image
+        value:
+          logo_image:
+          logo_image_dark:
+      - label: Text
+        icon: border_color
+        description: Add as text
+        value:
+          logo_heading:
+  footer_link_structure:
+    style: select
+    values:
+      - icon: add_photo_alternate
+        label: Add Image Link
+        value:
+          url_path:
+          image_path:
+          image_alt_text:
+      - icon: add_link
+        label: Add Text Link
+        value:
+          url_path:
+          link_title:
+  nav_link_structure:
+    style: select
+    values:
+      - icon: add_photo_alternate
+        label: Link with Icon
+        value:
+          link_title:
+          link_url:
+          link_label:
+          link_icon_path:
+      - icon: add_link
+        label: Text Link
+        preview:
+          text: Site Link
+          icon: add_link
+        value:
+          link_label:
+          link_url:
+data_config: {}
+timezone: Etc/UTC
